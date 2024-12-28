@@ -18,3 +18,20 @@ html{
   width: 90%;
   margin: 0 auto;
 }
+header  .top-script{
+ border-bottom: 1px solid #6666 ;
+}
+footer  .footer-script{
+ border-bottom: 1px solid #6666 ;
+}
+header  .tb-script{
+  border-bottom: 1px solid #6666 ;
+}
+
+.texthover{
+ @apply hover:text-primary transition duration-700
+}
+
+.fashon_deshing {
+  @apply text-[12px] font-light text-black
+}
