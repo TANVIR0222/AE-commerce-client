@@ -1,10 +1,13 @@
+import Home from "./components/pages/Home/Home";
+import Footer from "./shared/Footer";
+import Header from "./shared/Header";
+
 export default function App() {
   return (
-    <div className="container">
-      <h1 className="text-[#666] transition-all ">
-      Get up to 50% off new season styles, limited time only
-    </h1>
-    
+    <div className="">
+      <Header />
+          <Home />
+      <Footer />
     </div>
   )
 }
