@@ -7,12 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#d62492",
-        secondary: "#ffffff",
-        price: "#d62492",
-        link: "#d62492",
-        textPrimary: "#000",
-        textSecondary: "#000",
+        primary: "#E51a17",
+        secondary: "#FFFFFF",
+        price: "#FF5252",
+        link: "#FF5252",
+        textPrimary: "#000000",
+        textSecondary: "#666666",
       },
     },
   },
