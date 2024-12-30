@@ -14,7 +14,7 @@ const BadgePage = () => {
               className="text-black hover:text-primary transition duration-1000"
           />
         </div>
-        <div className=" hidden md:block">
+        <div className=" hidden md:hidden lg:block">
           <Badge
             badgeContent={4}
             sx={{
