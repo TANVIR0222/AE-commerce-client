@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className=" text-black py-8 ">
       <div className="container mx-auto footer-script ">
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Contact Us */}
           <div className="border-r ">
             <h3 className="text-lg texthover font-semibold mb-4">Contact Us</h3>
@@ -17,7 +17,6 @@ const Footer = () => {
               <p>507-Union Trade Centre</p>
               <p>France</p>
               <p>
-                Email:{" "}
                 <a
                   href="mailto:sales@yourcompany.com"
                   className="text-primary hover:underline"
@@ -26,7 +25,6 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                Phone:{" "}
                 <a
                   href="tel:+919876543210"
                   className="text-primary hover:underline"
@@ -84,7 +82,7 @@ const Footer = () => {
           </div>
 
           {/* Our Company */}
-          <div>
+          <div className="border-r ">
             <h3 className="text-lg font-semibold mb-4">Our Company</h3>
             <ul className="space-y-2">
               <li>
