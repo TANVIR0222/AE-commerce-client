@@ -29,12 +29,12 @@ const HomeBanner = () => {
 
   return (
     <div className="container">
-      <div className=" grid grid-cols-1 md:flex gap-8">
+      <div className=" grid grid-cols-1  lg:flex gap-8">
         {/* Slider   */}
         <div className="relative  overflow-hidden group mt-8">
           {/* Slider Content */}
           <div
-            className="flex w-full md:h-[408px] md:w-[830px] transition-transform duration-1000 ease-in-out"
+            className="flex w-full md:w-full lg:h-[408px] lg:w-[830px] transition-transform duration-1000 ease-in-out"
             style={{
               transform: `translateX(-${currentIndex * 100}%)`,
             }}
@@ -50,7 +50,7 @@ const HomeBanner = () => {
                   className="w-full object-cover transition-all hover:scale-110 duration-700 ease-in-out rounded-md"
                 />
                 {/* Text Content */}
-                <div className="absolute top-[20%] md:top-1/4  left-1/2 text-left transform  text-white bg-opacity-50  rounded-lg space-y-1 md:space-y-2 p-2 ">
+                <div className="absolute top-[15%] lg:top-[20%] md:top-1/4  left-1/2 text-left transform  text-white bg-opacity-50  rounded-lg space-y-1 md:space-y-2 p-2 ">
                   <h4 className="text-[10px] md:text-[20px] text-textPrimary font-normal">
                     {slide.subTitle}
                   </h4>
@@ -88,20 +88,20 @@ const HomeBanner = () => {
 
         {/* side minBanner  */}
 
-        <div className="flex-col items-center mt-4 gap-4 justify-between">
+        <div className=" grid grid-cols-1 md:flex lg:flex-col items-center mt-3 gap-4 justify-between">
           <div className="relative ">
             {/*  */}
             <div className=" absolute top-[20%] left-4 space-y-3">
-              <h2 className="text-[21px] text-textPrimary font-medium">
+              <h2 className="text-[23px] md:text-[25px] lg:text-[32px] text-textPrimary font-medium">
                 Samsung Gear <br /> VR Camera
               </h2>
-              <p className="text-[20px] text-primary font-normal">$129.00</p>
-              <p className="text-[16px] text-textPrimary font-medium uppercase hover:underline">
+              <p className="text-[19px] md:text-[25px] lg:text-[32px]  text-primary font-normal">$129.00</p>
+              <p className="text-[16px]  md:text-[20px] lg:text-[16px] text-textPrimary font-medium uppercase hover:underline">
                 shop now
               </p>
             </div>
             <img
-              className="my-4 rounded-md w-full md:h-[190px] md:w-[450px]"
+              className="my-4 rounded-md w-full md:w-full lg:h-[190px] lg:w-[450px]"
               src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/img/cms/sub-banner-1.jpg"
               alt=""
             />
@@ -109,16 +109,16 @@ const HomeBanner = () => {
           <div className=" relative">
             {/*  */}
             <div className=" absolute top-[20%] right-4 space-y-3">
-              <h2 className="text-[21px] text-textPrimary font-medium">
+              <h2 className="text-[23px] md:text-[25px] lg:text-[32px] text-textPrimary font-medium">
                 Samsung Gear <br /> VR Camera
               </h2>
-              <p className="text-[20px] text-primary font-normal">$129.00</p>
-              <p className="text-[16px] text-textPrimary font-medium uppercase hover:underline">
+              <p className="text-[19px] md:text-[25px] lg:text-[32px]  text-primary font-normal">$129.00</p>
+              <p className="text-[16px]  md:text-[20px] lg:text-[16px] text-textPrimary font-medium uppercase hover:underline">
                 shop now
               </p>
             </div>
             <img
-              className="my-4 rounded-md  w-full md:h-[200px] md:w-[450px]"
+              className="my-4 rounded-md  w-full md:w-full lg:h-[190px] lg:w-[450px]"
               src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/img/cms/sub-banner-2.jpg"
               alt=""
             />
