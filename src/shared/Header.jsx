@@ -12,11 +12,11 @@ const Header = () => {
         <div className="container py-2">
           <div className=" flex items-center justify-between">
             <div className="text-[14px]">
-              <p className=" text-textSecondary transition-all hidden md:block">
+              <p className=" text-textSecondary transition-all hidden md:hidden lg:block">
                 Get up to 50% off new season styles, limited time only
               </p>
             </div>
-            <div className=" flex items-center gap-2 ">
+            <div className=" flex items-center gap-2 mx-auto md:mx-auto lg:mx-1 ">
               <MiniBannerFlag />
             </div>
           </div>
