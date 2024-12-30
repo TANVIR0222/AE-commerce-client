@@ -6,8 +6,8 @@ const MobileSlider = () => {
 
         <div className=" relative">
           {/*  */}
-          <div className=" absolute top-[20%] right-4 space-y-3">
-            <h2 className="text-[21px] text-textPrimary font-medium">
+          <div className=" absolute top-[20%] right-4 space-y-3 md:space-y-1 lg:space-y-3">
+            <h2 className="text-[21px] md:text-[15px] lg:text-[21px] text-textPrimary font-medium">
               S22 Samsung <br /> Smartphone
             </h2>
             <p className="text-[20px] text-primary font-normal">$250.00</p>
@@ -23,8 +23,8 @@ const MobileSlider = () => {
         </div>
         <div className=" relative">
           {/*  */}
-          <div className=" absolute top-[20%] right-4 space-y-3">
-            <h2 className="text-[21px] text-textPrimary font-medium">
+          <div className=" absolute top-[20%] right-4 space-y-3 md:space-y-1 lg:space-y-3">
+            <h2 className="text-[21px] md:text-[15px] lg:text-[21px] text-textPrimary font-medium">
               Armchair Mad <br /> By shopstic
             </h2>
             <p className="text-[20px] text-primary font-normal">$190.00</p>
@@ -40,8 +40,8 @@ const MobileSlider = () => {
         </div>
         <div className=" relative">
           {/*  */}
-          <div className=" absolute top-[20%] right-4 space-y-3">
-            <h2 className="text-[21px] text-textPrimary font-medium">
+          <div className=" absolute top-[20%] right-4 space-y-3 md:space-y-1 lg:space-y-3">
+            <h2 className="text-[21px] md:text-[15px] lg:text-[21px] text-textPrimary font-medium">
               Noise Wireless <br /> Headphones
             </h2>
             <p className="text-[20px] text-primary font-normal">$129.00</p>
