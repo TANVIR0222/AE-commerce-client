@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import { slides } from "../../../utils/data";
 import HomeMinBanner from "../../common/HomePage/HomeMinBanner";
+import FashionCart from "../Fashoin/FashionCart";
 
 const HomeBanner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,29 +45,9 @@ const HomeBanner = () => {
                 key={slide.id}
                 className="w-full flex-shrink-0 relative text-center"
               >
-                <img
-                  src={slide.url}
-                  alt={slide.alt}
-                  className="w-full object-cover transition-all hover:scale-110 duration-700 ease-in-out rounded-md"
-                />
-                {/* Text Content */}
-                <div className="absolute top-[15%] lg:top-[20%] md:top-1/4  left-1/2 text-left transform  text-white bg-opacity-50  rounded-lg space-y-1 md:space-y-2 p-2 ">
-                  <h4 className="text-[10px] md:text-[20px] text-textPrimary font-normal">
-                    {slide.subTitle}
-                  </h4>
-                  <h2 className="text-[14px] md:text-[38px] text-textPrimary font-medium">
-                    {slide.title}
-                  </h2>
-                  <p className="text-[10px] md:text-[20px] text-textPrimary font-normal">
-                    {slide.description}{" "}
-                    <span className="text-[14px] md:text-[30px] font-semibold text-primary">
-                      {slide.price}
-                    </span>{" "}
-                  </p>
-                  <button className="text-sm text-white font-medium bg-primary py-1 md:py-2 px-2 md:px-5 uppercase rounded hover:bg-black transition duration-300">
-                    shop now
-                  </button>
-                </div>
+                
+                <FashionCart item={slide} />
+                
               </div>
             ))}
           </div>
