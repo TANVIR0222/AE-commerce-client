@@ -193,11 +193,11 @@ export const productsData = [
     "_id": 7,
     "name": "Diamond Earrings",
     "subCategory": "Fashion",
+    "description": "High-coverage foundation for a flawless finish.",
     "category": "jewellery",
     "image": "https://images.unsplash.com/photo-1587467442586-7bcc51828a10?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ix_id=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "price": 299.99,
     "oldPrice": 349.99,
-    "image": "https://demos.codezeel.com/prestashop/PRS21/PRS210502/105-home_default/brown-bear-vector-graphics.jpg",
     "color": "silver",
     "rating": 4.8
   },
