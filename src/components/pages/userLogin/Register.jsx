@@ -5,7 +5,7 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className=" container flex items-center justify-center h-screen">
+    <div className=" container flex items-center justify-center my-16">
       <div className=" grid grid-cols-1 gap-4  ">
         <h1 className="text-[22px] font-medium ">Log in to your account</h1>
         <div className="w-96  gap-4  ">
