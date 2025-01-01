@@ -1,11 +1,17 @@
 const DiscountBanner = () => {
   return (
     <div className="container">
-      <div className=" grid grid-cols-1 md:flex items-center mt-4 gap-4 md:justify-between">
+      <div className=" grid grid-cols-1 md:flex items-center mt-4 gap-5 md:justify-between">
         {/*  */}
-        <div className=" relative">
+        <div className=" relative overflow-hidden">
           {/*  */}
-          <div className="absolute top-[15%] md:top-[15%] lg:top-[17%] left-5 md:left-5 lg:left-10 space-y-1 md:space-y-2 lg:space-y-1">
+          <img
+            className="w-full  object-cover transition-transform duration-1000 hover:scale-110  ease-in-out rounded "
+            src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/img/cms/cms-banner-4.jpg"
+            alt=""
+          />
+          {/*  */}
+          <div className="absolute top-[10%] md:top-[15%] lg:top-[17%] left-5 md:left-5 lg:left-10 space-y-1 md:space-y-2 lg:space-y-1">
             <p className="text-[14px] md:text-[16px] lg:text-[18px]  font-light">
               Save Up To 20% Off
             </p>
@@ -17,15 +23,16 @@ const DiscountBanner = () => {
               shop now
             </button>
           </div>
+        </div>
+        <div className=" relative overflow-hidden">
+          {/*  */}
           <img
-            className="my-4 rounded-md w-full md:w-full lg:h-[210px] lg:w-[632px]"
-            src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/img/cms/cms-banner-4.jpg"
+            className="w-full  object-cover transition-transform duration-1000 hover:scale-110  ease-in-out rounded"
+            src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/img/cms/cms-banner-5.jpg"
             alt=""
           />
-        </div>
-        <div className=" relative">
           {/*  */}
-          <div className=" absolute top-[15%] md:top-[15%] lg:top-[17%] left-5 md:left-5 lg:left-10 space-y-1 md:space-y-2 lg:space-y-1">
+          <div className=" absolute top-[10%] md:top-[15%] lg:top-[17%] left-5 md:left-5 lg:left-10 space-y-1 md:space-y-2 lg:space-y-1">
             <p className="text-[14px] md:text-[16px] lg:text-[18px]  font-light">
               Best Online Discount
             </p>
@@ -36,11 +43,7 @@ const DiscountBanner = () => {
               shop now
             </button>
           </div>
-          <img
-            className="my-4 rounded-md  w-full md:w-full lg:h-[210px] lg:w-[632px]"
-            src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/img/cms/cms-banner-5.jpg"
-            alt=""
-          />
+          
         </div>
       </div>
     </div>

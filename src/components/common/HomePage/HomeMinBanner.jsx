@@ -25,11 +25,11 @@ const HomeMinBanner = () => {
     };
 
   return (
-    <div className="relative mx-auto">
+    <div className="relative mx-auto ">
       {/* Slider Container */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden ">
         <div
-          className="flex transition-transform duration-500"
+          className="flex transition-transform duration-700"
           style={{
             transform: `translateX(-${currentIndex * (100 / visibleItems)}%)`,
           }}
@@ -37,7 +37,7 @@ const HomeMinBanner = () => {
           {minicart.map((item, index) => (
             <div
               key={index}
-              className={`p-2 flex-shrink-0  relative ${
+              className={`p-2 flex-shrink-0   ${
                 window.innerWidth >= 1024
                   ? "w-1/6" // 6 items on large screens
                   : window.innerWidth >= 768
@@ -45,12 +45,15 @@ const HomeMinBanner = () => {
                   : "w-1/2" // 2 items on small screens
               }`}
             >
+              <div className="relative h-52 overflow-hidden">
               <img
                 src={item.url}
                 alt={item.title}
-                className="w-full h-[170px] object-contain transition-all hover:scale-105 duration-700 ease-in-out rounded-md"
+                className="w-full h-full object-cover transition-transform duration-1000 hover:scale-125 ease-in-out" // Image zoom on hover
               />
               <p className="text-[14px] mt-2 text-center absolute inset-0 text-black top-[70%] texthover  font-medium">{item.title}</p>
+              </div>
+              
             </div>
           ))}
         </div>

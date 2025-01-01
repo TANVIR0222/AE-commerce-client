@@ -43,11 +43,32 @@ const HomeBanner = () => {
             {slides.map((slide) => (
               <div
                 key={slide.id}
-                className="w-full flex-shrink-0 relative text-center"
+                className="w-full flex-shrink-0 relative text-center overflow-hidden"
               >
                 
-                <FashionCart item={slide} />
-                
+                <img
+                  src={slide.url}
+                  alt={slide.alt}
+                  className="w-full object-cover transition-transform hover:scale-110 duration-700 ease-in-out rounded-md"
+                />
+                {/* Text Content */}
+                <div className="absolute top-[20%] md:top-1/4  left-1/2 text-left transform  text-white bg-opacity-50  rounded-lg space-y-1 md:space-y-2 p-2 ">
+                  <h4 className="text-[10px] md:text-[20px] text-textPrimary font-normal">
+                    {slide.subTitle}
+                  </h4>
+                  <h2 className="text-[14px] md:text-[38px] text-textPrimary font-medium">
+                    {slide.title}
+                  </h2>
+                  <p className="text-[10px] md:text-[20px] text-textPrimary font-normal">
+                    {slide.description}{" "}
+                    <span className="text-[14px] md:text-[30px] font-semibold text-primary">
+                      {slide.price}
+                    </span>{" "}
+                  </p>
+                  <button className="text-sm text-white font-medium bg-primary py-1 md:py-2 px-2 md:px-5 uppercase rounded hover:bg-black transition duration-300">
+                    shop now
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -55,13 +76,13 @@ const HomeBanner = () => {
           {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute top-[42%] left-4 rounded transform -translate-y-1/2 bg-primary text-white  p-2 focus:outline-none hover:bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            className="home_slider_btn"
           >
             <MdKeyboardArrowLeft />
           </button>
           <button
             onClick={handleNext}
-            className="absolute top-[42%] right-4 transform rounded -translate-y-1/2 bg-primary text-white  p-2 focus:outline-none hover:bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            className="home_slider_btn_rigth"
           >
             <MdKeyboardArrowRight />
           </button>
@@ -72,8 +93,8 @@ const HomeBanner = () => {
         <div className=" grid grid-cols-1 md:flex lg:flex-col items-center mt-3 gap-4 justify-between">
           <div className="relative ">
             {/*  */}
-            <div className=" absolute top-[20%] left-4 space-y-3">
-              <h2 className="text-[23px] md:text-[25px] lg:text-[32px] text-textPrimary font-medium">
+            <div className=" absolute top-[20%] lg:top-[16%] left-4 space-y-3 lg:space-y-1">
+              <h2 className="text-[23px] md:text-[25px] lg:text-[25px] text-textPrimary font-medium">
                 Samsung Gear <br /> VR Camera
               </h2>
               <p className="text-[19px] md:text-[25px] lg:text-[32px]  text-primary font-normal">$129.00</p>
@@ -89,8 +110,8 @@ const HomeBanner = () => {
           </div>
           <div className=" relative">
             {/*  */}
-            <div className=" absolute top-[20%] right-4 space-y-3">
-              <h2 className="text-[23px] md:text-[25px] lg:text-[32px] text-textPrimary font-medium">
+            <div className=" absolute top-[20%] lg:top-[16%] right-4 space-y-3 lg:space-y-1">
+              <h2 className="text-[23px] md:text-[25px] lg:text-[25px] text-textPrimary font-medium">
                 Samsung Gear <br /> VR Camera
               </h2>
               <p className="text-[19px] md:text-[25px] lg:text-[32px]  text-primary font-normal">$129.00</p>

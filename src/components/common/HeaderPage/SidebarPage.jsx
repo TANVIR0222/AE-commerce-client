@@ -6,6 +6,7 @@ import { useState } from "react";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import { IoCloseOutline } from "react-icons/io5";
+import { Link } from "react-router";
 
 export default function SidebarPage() {
   const [open, setOpen] = useState(false);
@@ -31,12 +32,16 @@ export default function SidebarPage() {
         </div>
         <hr />
         {/* Menu Items */}
+        <Link to={'/'} onClick={() => setOpen(false)}>
         <h4 className="w-full text-left hover:bg-gray-100 p-2 rounded-md flex justify-between items-center font-medium texthover">
           Home
         </h4>
+        </Link>
+        <Link to={'/fashion'} onClick={() => setOpen(false)}>
         <h4 className="w-full text-left hover:bg-gray-100 p-2 rounded-md flex justify-between items-center font-medium texthover">
           New Arrivals
         </h4>
+        </Link>
         {/* Fashion Dropdown */}
         <ul className="space-y-4">
           <li>
@@ -60,13 +65,13 @@ export default function SidebarPage() {
             >
               <ul className="ml-4 mt-2 space-y-2">
                 <li className="hover:bg-gray-100 p-2 fashon_deshing rounded-md texthover">
-                  <a href="#item1">Apparel</a>
+                <Link to="/fashion"  onClick={() => setOpen(false)} >Apparel</Link>
                 </li>
                 <li className="hover:bg-gray-100 p-2 fashon_deshing rounded-md texthover">
-                  <a href="#item2">Outerwear</a>
+                <Link to="/fashion"  onClick={() => setOpen(false)} >Outerwear</Link>
                 </li>
                 <li className="hover:bg-gray-100 p-2 fashon_deshing rounded-md texthover">
-                  <a href="#item3">Footerwear</a>
+                <Link to="/fashion"  onClick={() => setOpen(false)} >Footerwear</Link>
                 </li>
               </ul>
             </div>
@@ -122,9 +127,41 @@ export default function SidebarPage() {
             </div>
           </li>
         </ul>
-        <h4 className="w-full text-left hover:bg-gray-100 p-2 rounded-md flex justify-between items-center font-medium texthover">
-          Contact
-        </h4>
+        <ul className="space-y-4">
+          <li>
+            <button
+              className="w-full text-left hover:bg-gray-100 p-2 rounded-md flex justify-between items-center font-medium texthover"
+              onClick={() => setIsDropdownOpenBrand(!isDropdownOpenBrand)}
+            >
+              More
+              <span
+                className={`transform transition-transform duration-300 ${
+                  isDropdownOpenBrand ? "rotate-90" : ""
+                }`}
+              >
+                ▶
+              </span>
+            </button>
+            <div
+              className={`overflow-hidden transition-all duration-700 ${
+                isDropdownOpenBrand ? "max-h-72" : "max-h-0"
+              }`}
+            >
+              <div className="ml-4 mt-2 space-y-2">
+                <p className="fashon_deshing hover:bg-gray-100 p-2 texthover">
+                 <Link to="/contact"  onClick={() => setOpen(false)}>Contact us</Link>
+                </p>
+                <p className="fashon_deshing p-2 hover:bg-gray-100 texthover">
+                <Link to="/about"  onClick={() => setOpen(false)}>About us</Link>
+                </p>
+                <p className="fashon_deshing p-2 hover:bg-gray-100 texthover">
+                <Link to="/blog"  onClick={() => setOpen(false)}>Blog</Link>
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+  {/*  */}
         <Divider className=" flex md:hidden " />
         <div className=" flex md:hidden my-2 ">
           <div className="text-[14px]">

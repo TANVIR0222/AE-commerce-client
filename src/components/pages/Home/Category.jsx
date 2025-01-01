@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { productsData } from "../../../utils/data";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import FashionCart from "../Fashoin/FashionCart";
 
 const Category = () => {
   const [activeButton, setActiveButton] = useState("Fashion");
@@ -96,23 +97,7 @@ const Category = () => {
                       : "w-1/2" // 2 items on small screens
                   }`}
                 >
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-52 my-2 rounded-md p-1"
-                  />
-                  <div className="ml-4 space-y-2">
-                    <p className="text-[13px] font-light text-textSecondary">
-                      {item.category}
-                    </p>
-                    <p className="text-[14px] font-normal text-black">
-                      {item.description}
-                    </p>
-                    <p className="text-[13px]">{item.rating}</p>
-                    <p className="text-[15px] text-primary font-normal">
-                      ${item.price}
-                    </p>
-                  </div>
+                  <FashionCart item={item} />
                 </div>
               ))}
             </div>
@@ -120,7 +105,13 @@ const Category = () => {
         </div>
       </div>
 
-      <div className="my-10 md:my-16 relative ">
+      <div className="my-10 md:my-16 relative overflow-hidden ">
+{/*  */}
+        <img
+          src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/img/cms/offer-banner.jpg"
+          alt=""
+          className="w-full  object-cover transition-transform duration-1000 hover:scale-x-110  ease-in-out rounded "
+        />
         <div className="absolute top-1 md:top-0 lg:top-[20%] left-[45%] md:left-[35%] flex items-center gap-4">
           <div className="">
           <h1 className="text-[16px]  md:text-[45px] font-normal leading-normal text-white">Watch</h1>
@@ -132,12 +123,7 @@ const Category = () => {
           </p>
           </div>
         </div>
-        <img
-          src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/img/cms/offer-banner.jpg"
-          alt=""
-          className="w-full  object-cover  rounded-md"
-        />
-      </div>
+      </div>      
     </div>
   );
 };

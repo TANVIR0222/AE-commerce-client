@@ -3,6 +3,8 @@ import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import FashionViewPage from "./FashionViewPage";
 import BrandPage from "./BrandPage";
 import SidebarPage from "./SideBarPage";
+import Information from "../../pages/pageInfo/Information";
+import { Link } from "react-router";
 
 const HeaderPage = () => {
   return (
@@ -52,9 +54,9 @@ const HeaderPage = () => {
                 },
               }}
             >
-              <span className="text-[14px] text-textPrimary font-medium hover:text-primary transition duration-700">
+              <Link to={'/fashion'} className="text-[14px] text-textPrimary font-medium hover:text-primary transition duration-700">
                 Fashion
-              </span>
+              </Link>
             </Tooltip>
           </p>
           <p className="text-[14px] text-textPrimary font-medium hover:text-primary transition duration-700">
@@ -92,14 +94,47 @@ const HeaderPage = () => {
               },
             }}
           >
-            <span className="text-[14px] text-textPrimary font-medium hover:text-primary transition duration-700">
+            <Link to={'/fashion'} className="text-[14px] text-textPrimary font-medium hover:text-primary transition duration-700">
               All brands
+            </Link>
+          </Tooltip>
+          {/*  */}
+          <Tooltip
+            title={
+              <span
+                style={{
+                  fontWeight: "700",
+                  width: "550px",
+                  height: "550px",
+                  transition: "0.9s",
+                  transitionDuration: "0.9s",
+                }}
+              >
+                <Information />
+              </span>
+            }
+            arrow
+            componentsProps={{
+              tooltip: {
+                sx: {
+                  backgroundColor: "#FFFFFF", // Custom background color
+                  color: "#FFFFFF", // Custom text color
+                  borderRadius: "8px", // Rounded corners
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Shadow for depth
+                },
+              },
+              arrow: {
+                sx: {
+                  color: "#1E90FF", // Match arrow color with tooltip background
+                },
+              },
+            }}
+          >
+            <span className="text-[14px] text-textPrimary font-medium hover:text-primary transition duration-700">
+              More
             </span>
           </Tooltip>
 
-          <p className="text-[14px] text-textPrimary font-medium hover:text-primary transition duration-700">
-            Contact
-          </p>
         </div>
 
         <div className="flex items-center gap-3 ">
