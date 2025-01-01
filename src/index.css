@@ -35,3 +35,10 @@ header  .tb-script{
 .fashon_deshing {
   @apply text-[12px] font-light text-black
 }
+
+.home_slider_btn {
+  @apply absolute top-1/2 left-4 rounded transform -translate-y-1/2 bg-primary text-white  p-2 focus:outline-none hover:bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+}
+.home_slider_btn_rigth {
+  @apply absolute top-1/2 right-4 transform rounded -translate-y-1/2 bg-primary text-white  p-2 focus:outline-none hover:bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+}
