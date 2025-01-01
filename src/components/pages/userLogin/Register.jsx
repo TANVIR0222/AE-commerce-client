@@ -1,5 +1,6 @@
 import { TextField } from "@mui/material";
 import { useState } from "react";
+import { Link } from "react-router";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -98,7 +99,7 @@ const Register = () => {
         {/*  */}
         <div className="flex justify-between">
           <p className="text-[14px] font-light text-textPrimary texthover">
-            You have a account? Log in one here
+            You have a account? <Link to={'/login'}>Log in one here</Link>
           </p>
         </div>
         {/*  */}

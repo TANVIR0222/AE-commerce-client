@@ -1,5 +1,6 @@
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import { Link } from "react-router";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -59,8 +60,9 @@ const Login = () => {
           <p className="text-[14px] font-light text-textPrimary texthover">
             Forgot your password?
           </p>
+          
           <p className="text-[14px] font-light text-textPrimary texthover">
-        No account? Create one here
+        No account? <Link to={'/register'}>Create one here</Link>
          </p>
         </div>
 {/*  */}
