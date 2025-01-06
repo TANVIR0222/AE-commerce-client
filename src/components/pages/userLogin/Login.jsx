@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { useUserLoginMutation } from "../../../app/feature/userApi/userApi";
-import ErrorHandle from "../../common/ErrorHandle";
+import UserErrorView from "../../common/UserErrorView";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../app/feature/userApi/userSlice";
@@ -127,7 +127,7 @@ const Login = () => {
         No account? <Link to={'/register'}>Create one here</Link>
          </p>
         </div>
-{/*  */} <ErrorHandle error={error} />
+{/*  */} <UserErrorView error={error} />
         <button className="bg-primary p-[12px] rounded font-medium w-24 border uppercase text-white text-[13px] rounded-r hover:bg-textPrimary ">
           {" "}
            {isLoading ? "Loading.." : "Login"} {" "}
