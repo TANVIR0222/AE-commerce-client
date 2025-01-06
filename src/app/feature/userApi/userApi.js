@@ -20,10 +20,12 @@ export const userApi = createApi({
         body: newData,
       })
     }),
-   
+    fetchSingleUser: builder.query({
+      query: (id) => `single-user/${id}`
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useUserRegisterMutation  , useUserLoginMutation } = userApi
+export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery } = userApi
