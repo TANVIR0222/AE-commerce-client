@@ -7,6 +7,9 @@ import ContactPage from "../components/pages/contact/ContactPage";
 import AboutPage from "../components/pages/contact/AboutPage";
 import Login from "../components/pages/userLogin/Login";
 import Register from "../components/pages/userLogin/Register";
+import ForgotPassword from "../components/pages/userLogin/ForgotPassword";
+import OTPverify from "../components/pages/userLogin/OTPverify";
+import ResrtPassword from "../components/pages/userLogin/ResrtPassword";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +45,18 @@ export const router = createBrowserRouter([
           path: "/blog",
           element: <Blog />,
         },
-        ]
+        {
+          path: "/forgot-Password",
+          element: <ForgotPassword />,
+        },
+        {
+          path: "/otp-verify",
+          element: <OTPverify />,
+        },
+        {
+          path: "/resrt-password",
+          element: <ResrtPassword />,
+        },
+      ]
     }
   ]);
