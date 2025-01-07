@@ -30,9 +30,16 @@ export const userApi = createApi({
         body: newData
       })
     }),
+    verifyOTP: builder.mutation({
+      query: (newData) => ({
+        url: `verify-forgot-password-otp`,
+        method: 'PUT',
+        body: newData
+      })
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery , useForgotPasswordMutation } = userApi
+export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery , useForgotPasswordMutation , useVerifyOTPMutation } = userApi
