@@ -37,9 +37,16 @@ export const userApi = createApi({
         body: newData
       })
     }),
+    resetPassword: builder.mutation({
+      query: (newData) => ({
+        url: `reset-password`,
+        method: 'PUT',
+        body: newData
+      })
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery , useForgotPasswordMutation , useVerifyOTPMutation } = userApi
+export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery , useForgotPasswordMutation , useVerifyOTPMutation  , useResetPasswordMutation} = userApi
