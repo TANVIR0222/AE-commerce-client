@@ -5,7 +5,7 @@ import { PiShoppingCartThin } from "react-icons/pi";
 import { LiaUserCircle } from "react-icons/lia";
 import CartSlider from "./CartSlider";
 
-const BadgePage = () => {
+const BadgePage = ({user}) => {  
   return (
     <div>
       <div className="flex items-center gap-2 ml-3">
@@ -17,7 +17,7 @@ const BadgePage = () => {
         </div>
         <div className=" hidden md:hidden lg:block">
           <Badge
-            badgeContent={4}
+            badgeContent={user?.shopping_cart?.length }
             sx={{
               "& .MuiBadge-badge": {
                 backgroundColor: "#ff5722", // Custom background color
@@ -33,7 +33,7 @@ const BadgePage = () => {
         </div>
 
         <Badge
-          badgeContent={4}
+          badgeContent={user?.shopping_cart?.length }
           sx={{
             "& .MuiBadge-badge": {
               backgroundColor: "#ff5722", // Custom background color
@@ -46,7 +46,7 @@ const BadgePage = () => {
             className="text-black hover:text-primary transition duration-1000"
           />
         </Badge>
-        <CartSlider />
+        <CartSlider cart={user?.shopping_cart?.length} />
       </div>
     </div>
   );

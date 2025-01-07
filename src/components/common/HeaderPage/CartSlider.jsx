@@ -7,7 +7,9 @@ import { PiShoppingCartThin } from "react-icons/pi";
 import { BsCart3 } from "react-icons/bs";
 import AddToCart from "../ProductAddButton/AddToCart";
 
-const CartSlider = ({blogs}) => {
+const CartSlider = ({ cart }) => {
+  console.log(cart);
+  
   
   const [open, setOpen] = useState(false);
 
@@ -93,7 +95,7 @@ const CartSlider = ({blogs}) => {
     <div>
       <button onClick={() => setOpen(!open)}>
       <Badge
-          badgeContent={4}
+          badgeContent={cart}
           sx={{
             "& .MuiBadge-badge": {
               backgroundColor: "#ff5722", // Custom background color

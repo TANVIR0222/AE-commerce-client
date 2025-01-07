@@ -119,9 +119,9 @@ const Login = () => {
 
 {/*  */}
         <div className="flex justify-between my-2">
-          <p className="text-[14px] font-light text-textPrimary texthover">
+          <Link to={'/forgot-Password'} className="text-[14px] font-light text-textPrimary texthover">
             Forgot your password?
-          </p>
+          </Link>
           
           <p className="text-[14px] font-light text-textPrimary texthover">
         No account? <Link to={'/register'}>Create one here</Link>
