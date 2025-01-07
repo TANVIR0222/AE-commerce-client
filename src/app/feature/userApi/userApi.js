@@ -23,9 +23,16 @@ export const userApi = createApi({
     fetchSingleUser: builder.query({
       query: (id) => `single-user/${id}`
     }),
+    forgotPassword: builder.mutation({
+      query: (newData) => ({
+        url: `forgot-password`,
+        method: 'PUT',
+        body: newData
+      })
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery } = userApi
+export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery , useForgotPasswordMutation } = userApi
