@@ -5,6 +5,8 @@ import MiniBannerFlag from "../components/common/HeaderPage/MiniBannerFlag";
 import SearchPage from "../components/common/HeaderPage/SearchPage";
 import SidebarPage from "../components/common/HeaderPage/SideBarPage";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useFetchSingleUserQuery } from "../app/feature/userApi/userApi";
 
 const Header = () => {
 
@@ -25,6 +27,11 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const id = useSelector((state) => state?.user?.id)
+
+  const {data : user} = useFetchSingleUserQuery(id)
+  
 
   return (
     <header className="sticky top-0 z-40 bg-white">
@@ -71,23 +78,34 @@ const Header = () => {
             <div className="flex items-center">
               <div className=" hidden lg:block">
                 <div className="flex items-center gap-1">
-                  <Link to="/login">
-                  <p className="text-[14px] text-black font-light hover:text-primary transition duration-1000">
-                    Login{" "}
-                  </p>
-                  </Link>
-                  /
-                  <Link to={'/register'}>
-                  <p className="text-[14px] text-textPrimary font-light hover:text-primary transition duration-1000">
-                    Registe
-                  </p>
-                  </Link>
+                  {
+                    user ? (
+                      <p className="text-[14px] text-black font-light hover:text-primary transition duration-1000">
+                      My Account{" "}
+                    </p>
+                      ) : (
+                        <>
+                        <Link to="/login">
+                          <p className="text-[14px] text-black font-light hover:text-primary transition duration-1000">
+                            Login{" "}
+                          </p>
+                        </Link>
+                          <span className="text-black" >|</span>
+                        <Link to={'/register'}>
+                            <p className="text-[14px] text-textPrimary font-light hover:text-primary transition duration-1000">
+                              Registe
+                            </p>
+                        </Link>
+                        </>
+                  )
+
+                  }
                   <span className="p-3 border-r border-gray-300"></span>
                 </div>
               </div>
               {/* user badges */}
               <div className={`flex items-center gap-2 ml-3 sticky top-0 z-40  `}>
-                <BadgePage />
+                <BadgePage user ={user} />
               </div>
             </div>
           </div>
