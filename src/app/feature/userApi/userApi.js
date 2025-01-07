@@ -44,9 +44,16 @@ export const userApi = createApi({
         body: newData
       })
     }),
+    logoutUser: builder.mutation({
+      query: (newData) => ({
+        url: `logout`,
+        method: 'POST',
+        body: newData
+      })
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery , useForgotPasswordMutation , useVerifyOTPMutation  , useResetPasswordMutation} = userApi
+export const { useUserRegisterMutation  , useUserLoginMutation , useFetchSingleUserQuery , useForgotPasswordMutation , useVerifyOTPMutation  , useResetPasswordMutation , useLogoutUserMutation } = userApi
