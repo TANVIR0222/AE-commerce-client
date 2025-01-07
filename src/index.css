@@ -42,3 +42,7 @@ header  .tb-script{
 .home_slider_btn_rigth {
   @apply absolute top-1/2 right-4 transform rounded -translate-y-1/2 bg-primary text-white  p-2 focus:outline-none hover:bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-700
 }
+
+.primaryBtn{
+  @apply bg-primary p-[12px] rounded font-medium w-32 border uppercase text-white text-[13px] rounded-r hover:bg-textPrimary
+}
