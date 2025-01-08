@@ -1,27 +1,11 @@
-import * as React from 'react';
-
-import Stack from '@mui/material/Stack';
-import CircularProgress from '@mui/material/CircularProgress';
-
-function GradientCircularProgress() {
-  return (
-    <React.Fragment>
-      <svg width={0} height={0}>
-        <defs>
-          <linearGradient id="my_gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#e01cd5" />
-            <stop offset="100%" stopColor="#1CB5E0" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <CircularProgress sx={{ 'svg circle': { stroke: 'url(#my_gradient)' } }} />
-    </React.Fragment>
-  );
-}
 export default function Loading() {
   return (
-    <Stack spacing={2} sx={{ flexGrow: 1 }}>
-      <GradientCircularProgress />
-    </Stack>
+    <div className="flex justify-center items-center min-h-screen">
+      <img
+        src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/16388581681_D-ZiKd0B00tdifaB2X3tKQ.gif"
+        alt="Loading..."
+        className="w-32 h-32"
+      />
+    </div>
   );
 }
