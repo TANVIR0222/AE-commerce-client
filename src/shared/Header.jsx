@@ -7,6 +7,7 @@ import SidebarPage from "../components/common/HeaderPage/SideBarPage";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useFetchSingleUserQuery } from "../app/feature/userApi/userApi";
+import { useUser } from "../components/Hooks/useUser";
 
 const Header = () => {
 
@@ -28,9 +29,8 @@ const Header = () => {
     };
   }, []);
 
-  const id = useSelector((state) => state?.user?.id)
 
-  const {data : user} = useFetchSingleUserQuery(id)
+  const [user ] = useUser();
   
 
   return (
@@ -80,9 +80,9 @@ const Header = () => {
                 <div className="flex items-center gap-1">
                   {
                     user ? (
-                      <p className="text-[14px] text-black font-light hover:text-primary transition duration-1000">
+                      <Link to={'userLauout/informations'} className="text-[14px] text-black font-light hover:text-primary transition duration-1000">
                       My Account{" "}
-                    </p>
+                    </Link>
                       ) : (
                         <>
                         <Link to="/login">
