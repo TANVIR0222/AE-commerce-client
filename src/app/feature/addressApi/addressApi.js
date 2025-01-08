@@ -16,9 +16,15 @@ export const addressApi = createApi({
     getAddressSingleUser: builder.query({
         query: (id) => `get-single-user-address/${id}`,
     }),
+    deleteAddress:builder.mutation({
+        query: (id) => ({
+            url: `delete-address/${id}`,
+            method: "DELETE",
+        }),
+    })
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useAddNewAddressMutation , useGetAddressSingleUserQuery } = addressApi;
+export const { useAddNewAddressMutation , useGetAddressSingleUserQuery , useDeleteAddressMutation } = addressApi;
