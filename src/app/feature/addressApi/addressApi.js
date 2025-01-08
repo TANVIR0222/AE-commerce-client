@@ -13,9 +13,12 @@ export const addressApi = createApi({
         body: body,
       }),
     }),
+    getAddressSingleUser: builder.query({
+        query: (id) => `get-single-user-address/${id}`,
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useAddNewAddressMutation } = addressApi;
+export const { useAddNewAddressMutation , useGetAddressSingleUserQuery } = addressApi;
