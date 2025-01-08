@@ -10,6 +10,12 @@ import Register from "../components/pages/userLogin/Register";
 import ForgotPassword from "../components/pages/userLogin/ForgotPassword";
 import OTPverify from "../components/pages/userLogin/OTPverify";
 import ResrtPassword from "../components/pages/userLogin/ResrtPassword";
+import MyAccount from "../components/pages/userAccount/MyAccount";
+import Informations from "../components/pages/userAccount/Informations";
+import UserLauout from "../components/pages/userAccount/userLauout";
+import Address from "../components/pages/userAccount/Address";
+import OrderHistory from "../components/pages/userAccount/OrderHistory";
+import Wishlist from "../components/pages/userAccount/Wishlist";
 
 export const router = createBrowserRouter([
     {
@@ -56,6 +62,33 @@ export const router = createBrowserRouter([
         {
           path: "/resrt-password",
           element: <ResrtPassword />,
+        },
+        
+        {
+          path: "/userLauout",
+          element: < UserLauout />,
+          children:[
+            {
+              path: "my-account",
+              element: <MyAccount />,
+            },
+            {
+              path: "informations",
+              element: <Informations />,
+            },
+            {
+              path: "address",
+              element: <Address />,
+            },
+            {
+              path: "order-hostory",
+              element: <OrderHistory />,
+            },
+            {
+              path: "wishlist",
+              element: <Wishlist />,
+            },
+          ]
         },
       ]
     }
