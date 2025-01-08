@@ -5,6 +5,7 @@ import baseURL from "../../../utils/baseURL";
 export const addressApi = createApi({
   reducerPath: "addressApi",
   baseQuery: fetchBaseQuery({ baseUrl: `${baseURL()}/address/` }),
+  tagTypes: ["Address"],
   endpoints: (builder) => ({
     addNewAddress: builder.mutation({
       query: (body) => ({
@@ -12,22 +13,26 @@ export const addressApi = createApi({
         method: "POST",
         body: body,
       }),
+      invalidatesTags: ["Address"],
     }),
     getAddressSingleUser: builder.query({
         query: (id) => `get-single-user-address/${id}`,
+        providesTags: ["Address"],
     }),
     deleteAddress:builder.mutation({
         query: (id) => ({
             url: `delete-address/${id}`,
             method: "DELETE",
         }),
+        invalidatesTags: ["Address"],
     }),
     updateAddress : builder.mutation({
         query: (body) => ({
             url: `update-address/${body.id}`,
             method: "PUT",
             body: body,
-        })
+        }),
+        invalidatesTags: ["Address"],
     }),
   }),
 });
