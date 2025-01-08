@@ -6,9 +6,16 @@ export const addressApi = createApi({
   reducerPath: "addressApi",
   baseQuery: fetchBaseQuery({ baseUrl: `${baseURL()}/address/` }),
   endpoints: (builder) => ({
+    addNewAddress: builder.mutation({
+      query: (body) => ({
+        url: `add-address/${body.id}`,
+        method: "POST",
+        body: body,
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const {  } = addressApi;
+export const { useAddNewAddressMutation } = addressApi;
