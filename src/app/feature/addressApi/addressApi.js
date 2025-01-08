@@ -21,10 +21,17 @@ export const addressApi = createApi({
             url: `delete-address/${id}`,
             method: "DELETE",
         }),
-    })
+    }),
+    updateAddress : builder.mutation({
+        query: (body) => ({
+            url: `update-address/${body.id}`,
+            method: "PUT",
+            body: body,
+        })
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useAddNewAddressMutation , useGetAddressSingleUserQuery , useDeleteAddressMutation } = addressApi;
+export const { useAddNewAddressMutation , useGetAddressSingleUserQuery , useDeleteAddressMutation , useUpdateAddressMutation } = addressApi;  // eslint-disable-line
