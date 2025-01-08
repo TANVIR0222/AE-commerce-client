@@ -36,15 +36,13 @@ const Login = () => {
       // user register success 
      const {message , data}  = await  userLogin(user).unwrap();
      const {accessToken, refreshToken ,id} = data;
-     console.log(id);
      
-
      // save token in local storage
      if(message){
       toast.success(message)
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);  
-      dispatch(setUser({id}));
+      dispatch(setUser(id));
       // navigate to home page
       navigate('/');
       reset();
