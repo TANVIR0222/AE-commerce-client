@@ -1,27 +1,29 @@
 import { Outlet } from "react-router";
-import Blog from "./components/pages/Blog/Blog";
-import AboutPage from "./components/pages/contact/AboutPage";
-import ContactPage from "./components/pages/contact/ContactPage";
-import Fashion from "./components/pages/Fashoin/Fashion";
-import ProductViewPage from "./components/pages/Fashoin/ProductViewPage";
-import Home from "./components/pages/Home/Home";
-import Login from "./components/pages/userLogin/Login";
-import Register from "./components/pages/userLogin/Register";
 import Footer from "./shared/Footer";
 import Header from "./shared/Header";
+import { useEffect, useState } from "react";
+import Loading from "./components/common/Loading";
 
 export default function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an async operation like fetching data
+    setTimeout(() => {
+      // Simulate an error condition
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+
   return (
     <div className="">
       <Header />
-      {/* <Home /> */}
-      {/* <Fashion /> */}
-      {/* <ProductViewPage /> */}
-      {/* <Blog /> */}
-      {/* <ContactPage /> */}
-      {/* <AboutPage /> */}
-      {/* <Login /> */}
-      {/* <Register /> */}
       <Outlet />
       <Footer />
     </div>
