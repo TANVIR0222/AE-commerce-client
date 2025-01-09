@@ -5,10 +5,12 @@ import { userApi } from './feature/userApi/userApi'
 import userReducer from './feature/userApi/userSlice'
 import { imageApi } from './feature/imageApi/imageApi'
 import { addressApi } from './feature/addressApi/addressApi'
+import cartReducer  from './feature/cartApi/cartSlice'
 
 export const store = configureStore({
   reducer: {
     user : userReducer,
+    cart : cartReducer,
     [userApi.reducerPath]: userApi.reducer,
     [imageApi.reducerPath]: imageApi.reducer,
     [addressApi.reducerPath]: addressApi.reducer,
