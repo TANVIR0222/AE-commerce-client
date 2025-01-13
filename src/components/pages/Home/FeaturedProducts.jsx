@@ -2,6 +2,8 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { productsData } from "../../../utils/data";
 import { useEffect, useState } from "react";
 import FashionCart from "../Fashoin/FashionCart";
+import { useFetchProductQuery } from "../../../app/feature/productApi/poductApi";
+import Loading from "../../common/Loading";
 
 const FeaturedProducts = () => {
   const [visibleItems, setVisibleItems] = useState(6);
@@ -23,19 +25,38 @@ const FeaturedProducts = () => {
     };
   }, []);
 
+
+  const {data: products, isLoading, error} = useFetchProductQuery();
+
+
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + visibleItems < productsData.length ? prevIndex + 1 : 0
-    );
+    const totalProducts = products?.data?.products.length || 0;
+    const totalVisibleItems = visibleItems || 1; // Default to 1 if visibleItems is not defined
+  
+    // Check if we can move to the next page by comparing with the total products and visible items
+    if (currentIndex + totalVisibleItems < totalProducts) {
+      setCurrentIndex((prevIndex) => prevIndex + totalVisibleItems); // Move to the next set of items
+    } else {
+      setCurrentIndex(0); // If at the end, loop back to the first product
+    }
   };
-
+  
+  
   const handlePrev = () => {
+    const totalProducts = products?.data?.products.length || 0;
+    const totalVisibleItems = visibleItems || 1; // Default to 1 if visibleItems is not defined
+    
+    // Make sure we don't go to a negative index
     setCurrentIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : productsData.length - visibleItems
+      prevIndex > 0
+        ? prevIndex - totalVisibleItems // Move to the previous set of items
+        : totalProducts - totalVisibleItems // Loop back to the last set of items
     );
   };
+  
 
-  return (
+  
+  return isLoading ? <Loading /> : (
     <div className="container">
       <div className="my-16">
         <div className="flex justify-between items-center gap-4 my-4">
@@ -49,19 +70,19 @@ const FeaturedProducts = () => {
             >
               <MdKeyboardArrowLeft />
             </button>
-            <button
+            <button 
               onClick={handleNext}
               className="bg-secondary rounded-full border-[0.5px] border-gray-400 shadow-md text-2xl md:text-2xl hover:bg-primary hover:border-none hover:text-secondary"
             >
-              <MdKeyboardArrowRight />
+              <MdKeyboardArrowRight   />
             </button>
           </div>
         </div>
 
         {/* Content */}
-        <div>
+        <div >
           <div className="relative mx-auto border-[2px] border-primary rounded-sm">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden"  >
               <div
                 className="flex transition-transform duration-500"
                 style={{
@@ -70,9 +91,9 @@ const FeaturedProducts = () => {
                   }%)`,
                 }}
               >
-                {productsData.map((item, index) => (
+                {products?.data?.products?.map((item, index) => (
                   <div
-                    key={index}
+                    key={item._id}
                     className={`flex-shrink-0 relative h-[380px] bg-secondary border-r-[0.5px] border-gray-400 ${
                       visibleItems === 6
                         ? "w-1/6" // 6 items on large screens
@@ -81,7 +102,7 @@ const FeaturedProducts = () => {
                         : "w-1/2" // 2 items on small screens
                     }`}
                   >
-                    <FashionCart item={item} />
+                    <FashionCart item={item}  />
                   </div>
                 ))}
               </div>

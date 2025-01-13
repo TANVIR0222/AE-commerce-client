@@ -10,7 +10,6 @@ import BrandsSlider from "../../common/HomePage/BrandsSlider";
 import ClientSay from "../../common/HomePage/ClientSay";
 import InstagramPage from "../../common/HomePage/InstagramPage";
 import InformationPage from "../../common/HomePage/InformationPage";
-import Nodata from "../../common/Nodata";
 import BlogPage from "../../common/HomePage/BlogPage";
 
 const Home = () => {

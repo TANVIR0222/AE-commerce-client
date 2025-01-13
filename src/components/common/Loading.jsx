@@ -4,7 +4,7 @@ export default function Loading() {
       <img
         src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/16388581681_D-ZiKd0B00tdifaB2X3tKQ.gif"
         alt="Loading..."
-        className="w-32 h-32"
+        className="w-52 h-52"
       />
     </div>
   );

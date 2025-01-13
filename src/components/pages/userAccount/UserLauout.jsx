@@ -7,6 +7,7 @@ import { FaHeart } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { useUser } from "../../Hooks/useUser";
 import Loading from "../../common/Loading";
+import UserLogOut from "./UserLogOut";
 
 const NAVIGATION = [
   {
@@ -61,6 +62,8 @@ const userLauout = () => {
   }
   
 
+
+
   //  page name 
   const pathname = useLocation().pathname;
   return (
@@ -105,6 +108,8 @@ const userLauout = () => {
           )}
         </button>
       ))}
+       {/*  */}
+       <UserLogOut collapsed={collapsed} navigate={navigate} />
     </nav>
   </div>
 

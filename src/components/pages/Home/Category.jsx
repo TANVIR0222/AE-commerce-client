@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { productsData } from "../../../utils/data";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import FashionCart from "../Fashoin/FashionCart";
+import { useFetchProductQuery } from "../../../app/feature/productApi/poductApi";
+import Loading from "../../common/Loading";
 
 const Category = () => {
   const [activeButton, setActiveButton] = useState("Fashion");
@@ -24,23 +26,36 @@ const Category = () => {
     };
   }, []);
 
-  const categoryData = productsData.filter(
-    (item) => item.subCategory === activeButton
-  );
+  
+  const {data: products, isLoading, error} = useFetchProductQuery();
+
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + visibleItems < categoryData.length ? prevIndex + 1 : 0
-    );
+    const totalProducts = products?.data?.products.length || 0;
+    const totalVisibleItems = visibleItems || 1; // Default to 1 if visibleItems is not defined
+  
+    // Check if we can move to the next page by comparing with the total products and visible items
+    if (currentIndex + totalVisibleItems < totalProducts) {
+      setCurrentIndex((prevIndex) => prevIndex + totalVisibleItems); // Move to the next set of items
+    } else {
+      setCurrentIndex(0); // If at the end, loop back to the first product
+    }
   };
-
+  
+  
   const handlePrev = () => {
+    const totalProducts = products?.data?.products.length || 0;
+    const totalVisibleItems = visibleItems || 1; // Default to 1 if visibleItems is not defined
+    
+    // Make sure we don't go to a negative index
     setCurrentIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : categoryData.length - visibleItems
+      prevIndex > 0
+        ? prevIndex - totalVisibleItems // Move to the previous set of items
+        : totalProducts - totalVisibleItems // Loop back to the last set of items
     );
   };
 
-  return (
+  return isLoading ? <Loading /> : (
     <div className="container">
       <div className="flex justify-between items-center gap-4 my-4">
         <div className="flex items-center gap-4">
@@ -86,10 +101,10 @@ const Category = () => {
                 }%)`,
               }}
             >
-              {categoryData.map((item, index) => (
+              {products?.data?.products?.map((item, index) => (
                 <div
-                  key={index}
-                  className={`flex-shrink-0 relative h-[380px] bg-secondary border-r-[0.5px] border-gray-400 ${
+                key={item._id}
+                className={`flex-shrink-0 relative h-[380px] bg-secondary border-r-[0.5px] border-gray-400 ${
                     visibleItems === 6
                       ? "w-1/6" // 6 items on large screens
                       : visibleItems === 4

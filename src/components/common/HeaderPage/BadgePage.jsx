@@ -46,7 +46,7 @@ const BadgePage = ({user}) => {
             className="text-black hover:text-primary transition duration-1000"
           />
         </Badge>
-        <CartSlider cart={user?.shopping_cart?.length} />
+        <CartSlider />
       </div>
     </div>
   );

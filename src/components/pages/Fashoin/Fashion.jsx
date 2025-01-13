@@ -5,9 +5,40 @@ import { productsData } from "../../../utils/data";
 import FashionCart from "./FashionCart";
 import FashoinSlider from "../../common/Fashoin/FashoinSlider";
 import MobileFashionSlider from "../../common/Fashoin/MobileFashionSlider";
+import { useFetchProductQuery } from "../../../app/feature/productApi/poductApi";
+import { useLocation } from "react-router";
+import { useMemo } from "react";
 
 
 const Fashion = () => {
+  
+
+  const location = useLocation();
+  // console.log(lo);
+  
+  
+  const { availability, selectedColour, selectedSize, selectedSubCategory , price} = location.state || {} ;
+  // console.log(availability, selectedColour, selectedSize, selectedSubCategory, price); // Check passed state  
+
+
+  // Memoize filter values to prevent unnecessary re-fetches
+  const filterValues = useMemo(() => {
+    return {
+      category : availability,
+      selectedColour,
+      sizes : selectedSize,
+      subCategory :selectedSubCategory,
+      minPrice:price,
+    };
+  }, [availability, selectedColour, selectedSize, selectedSubCategory, price]);
+
+  // console.log(price);
+  
+
+  const {data: products, isLoading, error} = useFetchProductQuery(filterValues);
+  // console.log(products); // Check fetched data
+
+  
   
 
 
@@ -83,10 +114,10 @@ const Fashion = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 w-full md:w-full lg:h-[408px] lg:w-[830px] transition-transform duration-1000 ease-in-out mx-auto ">
-                {productsData.map((slide) => (
-                  <div key={slide.id} className="w-full items-center border text-center">
-                    <FashionCart item={slide} />
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full md:w-full lg:h-[408px] lg:w-[830px] transition-transform duration-1000 ease-in-out mx-auto ">
+                {products?.data?.products?.map((item) => (
+                  <div key={item._id} className="w-full items-center border text-center">
+                    <FashionCart item={item} />
                   </div>
                 ))}
               </div>

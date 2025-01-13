@@ -59,9 +59,28 @@ const cartSlice = createSlice({
       state.cartItems = [];
       localStorage.removeItem('cart');
     },
+
+    updateQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
+
+      // Find the product in the cart
+      const product = state.cartItems.find(item => item.id === id);
+
+      if (product) {
+        // If the product exists, update the quantity
+        product.quantity = quantity;
+      }
+
+      // Save the updated cart to localStorage
+      localStorage.setItem('cart', JSON.stringify(state.cartItems));
+
+      // Optional: Show a success message
+      toast.success('Product quantity updated successfully.');
+    },
+
   },
 });
 
-export const { addToCart, addMultipleToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { updateQuantity , addToCart, addMultipleToCart, removeFromCart, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

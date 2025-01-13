@@ -16,6 +16,7 @@ import UserLauout from "../components/pages/userAccount/userLauout";
 import Address from "../components/pages/userAccount/Address";
 import OrderHistory from "../components/pages/userAccount/OrderHistory";
 import Wishlist from "../components/pages/userAccount/Wishlist";
+import ProductViewPage from "../components/pages/Fashoin/ProductViewPage";
 
 export const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
         {
           path: "/resrt-password",
           element: <ResrtPassword />,
+        },
+        {
+          path: "/ProductViewPage/:id",
+          element: <ProductViewPage />,
         },
         
         {

@@ -6,6 +6,7 @@ import userReducer from './feature/userApi/userSlice'
 import { imageApi } from './feature/imageApi/imageApi'
 import { addressApi } from './feature/addressApi/addressApi'
 import cartReducer  from './feature/cartApi/cartSlice'
+import { productApi } from './feature/productApi/poductApi'
 
 export const store = configureStore({
   reducer: {
@@ -14,13 +15,14 @@ export const store = configureStore({
     [userApi.reducerPath]: userApi.reducer,
     [imageApi.reducerPath]: imageApi.reducer,
     [addressApi.reducerPath]: addressApi.reducer,
+    [productApi.reducerPath]: productApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,  // Disables the check
-    }).concat(userApi.middleware).concat(imageApi.middleware).concat(addressApi.middleware),
+    }).concat(userApi.middleware).concat(imageApi.middleware).concat(addressApi.middleware).concat(productApi.middleware),
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
